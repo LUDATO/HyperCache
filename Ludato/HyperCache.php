@@ -1,37 +1,35 @@
 <?php
- 
- /* 
- * The MIT License
- *
- * Copyright 2015 LUDATO.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
- 
- 
+
+ /*
+  * The MIT License
+  *
+  * Copyright 2015 LUDATO.
+  *
+  * Permission is hereby granted, free of charge, to any person obtaining a copy
+  * of this software and associated documentation files (the "Software"), to deal
+  * in the Software without restriction, including without limitation the rights
+  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  * copies of the Software, and to permit persons to whom the Software is
+  * furnished to do so, subject to the following conditions:
+  *
+  * The above copyright notice and this permission notice shall be included in
+  * all copies or substantial portions of the Software.
+  *
+  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  * THE SOFTWARE.
+  */
 
  namespace Ludato;
 
  /**
   * LUDATO HyperCache 0.1.0
-  * @author David Košťál
-  * @license http://URL MIT
+  * @author David Kostal
+  * @license http://opensource.org/licenses/MIT MIT
   */
  Class HyperCache {
 
@@ -113,6 +111,20 @@
       * @return boolean
       */
      function saveCache() {
+         if (is_writable($this->fullDirectory)) {
+             
+         } else {
+             mkdir($this->fullDirectory, 0777, TRUE);
+         }
+         if (!is_file($this->fullDirectory . DIRECTORY_SEPARATOR . ".htaccess")) {
+             $hw = fopen($this->fullDirectory . DIRECTORY_SEPARATOR . ".htaccess", "w");
+             $htaccess = <<<EOT
+Order deny,allow
+Deny from all
+EOT;
+             fputs($hw, $htaccess, strlen($htaccess));
+             fclose($hw);
+         }
          $page = ob_get_contents();
          ob_end_clean();
          //$time = time();
