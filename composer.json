@@ -1,11 +1,14 @@
 {
     "name": "ludato/hypercache",
-    "description": "Description of project HyperCache.",
+    "description": "Extremly fast and easy to implement PHP caching system",
+    "license" : "MIT",
     "authors": [
         {
-            "name": "David",
+            "name": "David Košťál",
             "email": "kostal.david@outlook.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=5.4.0"
+    }
 }
