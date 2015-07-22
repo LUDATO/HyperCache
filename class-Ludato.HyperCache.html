@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Ludato\HyperCache</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Ludato.html">
+						Ludato					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-Ludato.HyperCache.html">HyperCache</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Ludato.html" title="Summary of Ludato"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class HyperCache</h1>
+
+
+	<div class="description">
+	<p>LUDATO HyperCache 0.1.0</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Ludato.html">Ludato</a><br>
+		
+
+				<b>License:</b>
+				<a href="http://URL">MIT</a><br>
+				<b>Author:</b>
+				David Košťál<br>
+			<b>Located at</b> <a href="source-class-Ludato.HyperCache.html#31-252" title="Go to source code">Ludato/HyperCache.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#71-97" title="Go to source code">__construct</a>( <span>string <var>$directory</var></span>, <span>string|null <var>$page</var> = <span class="php-keyword1">NULL</span></span>, <span>string <var>$param</var> = <span class="php-quote">&quot;default&quot;</span></span> )</code>
+
+		<div class="description short">
+			<p>Saving params
+Note: Paths are saved url-encoded</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Saving params
+Note: Paths are saved url-encoded</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$directory</var></dt>
+					<dd>Path to directory for caching</dd>
+					<dt><var>$page</var></dt>
+					<dd>Full page name, including extension (if you want it determined automatically using PHP_SELF, use NULL)</dd>
+					<dt><var>$param</var></dt>
+					<dd>Parameters of caching (eg. for details.php it would be ID). You can combine whatever you want here</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="startCache" id="_startCache">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_startCache">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#99-109" title="Go to source code">startCache</a>( )</code>
+
+		<div class="description short">
+			<p>Starts caching</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Starts caching</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="saveCache" id="_saveCache">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_saveCache">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#111-133" title="Go to source code">saveCache</a>( )</code>
+
+		<div class="description short">
+			<p>Saves cached file and flushes the buffer (shows output)</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Saves cached file and flushes the buffer (shows output)</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCache" id="_getCache">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCache">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#135-149" title="Go to source code">getCache</a>( )</code>
+
+		<div class="description short">
+			<p>Loads cached file</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Loads cached file</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="autoLoadCache" id="_autoLoadCache">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_autoLoadCache">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#151-162" title="Go to source code">autoLoadCache</a>( )</code>
+
+		<div class="description short">
+			<p>Shows cache and if file is cached, otherwise starts caching and executing the rest of the file</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Shows cache and if file is cached, otherwise starts caching and executing the rest of the file</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="autoEndCache" id="_autoEndCache">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_autoEndCache">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#164-170" title="Go to source code">autoEndCache</a>( )</code>
+
+		<div class="description short">
+			<p>Automaically ending and saving cache</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Automaically ending and saving cache</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isCached" id="_isCached">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isCached">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#172-182" title="Go to source code">isCached</a>( )</code>
+
+		<div class="description short">
+			<p>Returns if file is cached</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns if file is cached</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Returns true if cached, else returns false.
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="purgeCurrent" id="_purgeCurrent">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_purgeCurrent">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#184-190" title="Go to source code">purgeCurrent</a>( )</code>
+
+		<div class="description short">
+			<p>Deletes cache for current page and params (eg. You have CMS and publish a new article. You need to purge just article_list.php, not article_details.php. If user publishes comment, purge just article_details.php with param of article name/ID)</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Deletes cache for current page and params (eg. You have CMS and publish a new article. You need to purge just article_list.php, not article_details.php. If user publishes comment, purge just article_details.php with param of article name/ID)</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="purgeAll" id="_purgeAll">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_purgeAll">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#192-199" title="Go to source code">purgeAll</a>( <span>string <var>$dir</var>,…</span> )</code>
+
+		<div class="description short">
+			<p>Purges all files specified cacing directory</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Purges all files specified cacing directory</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$dir</var>,…</dt>
+					<dd>Path to caching directory</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="purgePage" id="_purgePage">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_purgePage">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#201-207" title="Go to source code">purgePage</a>( )</code>
+
+		<div class="description short">
+			<p>Purges file for current page (eg. You have CMS and publish a new article. You need to purge just article_list.php, not article_details.php. If user publishes comment, purge just article_details.php with param of article name/ID)</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Purges file for current page (eg. You have CMS and publish a new article. You need to purge just article_list.php, not article_details.php. If user publishes comment, purge just article_details.php with param of article name/ID)</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="purgeCustom" id="_purgeCustom" class="deprecated">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_purgeCustom">#</a>
+		<code><a href="source-class-Ludato.HyperCache.html#209-231" title="Go to source code">purgeCustom</a>( <span>string <var>$directory</var></span>, <span>string <var>$page</var></span>, <span>string <var>$param</var> = <span class="php-keyword1">NULL</span></span> )</code>
+
+		<div class="description short">
+			<p>Purge cache from specified directory, for specific page (and params)</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Purge cache from specified directory, for specific page (and params)</p>
+
+				<h4>Deprecated</h4>
+				<div class="list">
+						0.1.0<br>
+				</div>
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$directory</var></dt>
+					<dd>Caching directory</dd>
+					<dt><var>$page</var></dt>
+					<dd>Page</dd>
+					<dt><var>$param</var></dt>
+					<dd>Params (opt.)</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="dev" id="$dev">
+		<td class="attributes"><code>
+			public static 
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Ludato.HyperCache.html#43-47" title="Go to source code"><var>$dev</var></a>
+
+			<div class="description short">
+				<p>Determines if development texts are shown</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Determines if development texts are shown</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$dev" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="prepend" id="$prepend">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Ludato.HyperCache.html#49-52" title="Go to source code"><var>$prepend</var></a>
+
+			<div class="description short">
+				<p>Valid PHP code (without opening tags) to be prepended to cache</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Valid PHP code (without opening tags) to be prepended to cache</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$prepend" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="append" id="$append">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Ludato.HyperCache.html#54-57" title="Go to source code"><var>$append</var></a>
+
+			<div class="description short">
+				<p>Valid PHP code (without opening tags) to be appended to cache</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Valid PHP code (without opening tags) to be appended to cache</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$append" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="evalPrepend" id="$evalPrepend">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Ludato.HyperCache.html#59-63" title="Go to source code"><var>$evalPrepend</var></a>
+
+			<div class="description short">
+				<p>Determines if prepended code should be eval()'ed when generating cache (alternative - put code before startCache())</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Determines if prepended code should be eval()'ed when generating cache (alternative - put code before startCache())</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$evalPrepend" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="evalAppend" id="$evalAppend">
+		<td class="attributes"><code>
+			public  
+			boolean
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Ludato.HyperCache.html#65-69" title="Go to source code"><var>$evalAppend</var></a>
+
+			<div class="description short">
+				<p>Determines if appended code should be eval()'ed when generating cache (alternative - put code after saveCache())</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Determines if appended code should be eval()'ed when generating cache (alternative - put code after saveCache())</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$evalAppend" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
