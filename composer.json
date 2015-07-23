@@ -4,12 +4,12 @@
     "license" : "MIT",
     "authors": [
         {
-            "name": "David Košťál",
+            "name": "David Kostal",
             "email": "kostal.david@outlook.com"
         }
     ],
         "autoload": {
-        "psr-4": {
+        "psr-0": {
             "Ludato\\": ""
         }
     },
