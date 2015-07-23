@@ -118,7 +118,7 @@
       */
      function saveCache() {
          if (is_writable($this->fullDirectory)) {
-             
+             $dirmade = TRUE;
          } else {
              $dirmade = @mkdir($this->fullDirectory, 0777, TRUE);
          }
@@ -151,13 +151,15 @@ EOT;
 
          if ($this->prepend) {
              $fwp = fopen($this->fullPrependPath, "w");
-             fputs($fwp, $this->prepend, strlen($this->prepend));
+             $prepend = "<?php " . $this->prepend . "?>";
+             fputs($fwp, $prepend, strlen($prepend));
              fclose($fwp);
          }
 
          if ($this->append) {
              $fwp = fopen($this->fullAppendPath, "w");
-             fputs($fwp, $this->append, strlen($this->append));
+             $append = "<?php " . $this->append . "?>";
+             fputs($fwp, $append, strlen($append));
              fclose($fwp);
          }
 
