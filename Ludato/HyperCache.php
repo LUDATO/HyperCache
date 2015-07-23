@@ -67,7 +67,7 @@
      public $evalAppend;
 
      /**
-      * Saving params
+      * Saving params and configuring
       * Note: Paths are saved url-encoded
       * @param string $directory Path to directory for caching
       * @param string|null $page Full page name, including extension (if you want it determined automatically using PHP_SELF, use NULL)
@@ -75,7 +75,7 @@
       */
      function __construct($directory, $page = NULL, $param = "default") {
          if (ini_get('short_open_tag')) {
-             ini_set('short_open_tag', '0'); //disabling short tags, to work with XML
+             ini_set('short_open_tag', '0'); //disabling short tags, in order to work with XML
          }
          mb_internal_encoding("UTF-8");
          if ($page === NULL) {
@@ -117,10 +117,15 @@
          if (is_writable($this->fullDirectory)) {
              
          } else {
-             mkdir($this->fullDirectory, 0777, TRUE);
+             $dirmade = @mkdir($this->fullDirectory, 0777, TRUE);
          }
-         if (!is_file($this->fullDirectory . DIRECTORY_SEPARATOR . ".htaccess")) {
-             $hw = fopen($this->fullDirectory . DIRECTORY_SEPARATOR . ".htaccess", "w");
+
+         if (!$dirmade) {
+             throw new \Exception("Caching directory not writeable", 0);
+         }
+
+         if (!is_file($this->cacheDirectory . DIRECTORY_SEPARATOR . ".htaccess")) {
+             $hw = fopen($this->cacheDirectory . DIRECTORY_SEPARATOR . ".htaccess", "w");
              $htaccess = <<<EOT
 Order deny,allow
 Deny from all
@@ -128,6 +133,7 @@ EOT;
              fputs($hw, $htaccess, strlen($htaccess));
              fclose($hw);
          }
+
          $page = ob_get_contents();
          ob_end_clean();
          //$time = time();
@@ -181,7 +187,12 @@ EOT;
       * @return void
       */
      function autoEndCache() {
-         $this->saveCache();
+         try {
+             $this->saveCache();
+         } catch (Exception $e) {
+             echo "\n" . $e . "\n";
+             die();
+         }
      }
 
      /**
@@ -251,16 +262,22 @@ EOT;
       * @return void
       */
      private function recursiveDelete($str) {
-         if (is_file($str)) {
-             return @unlink($str);
-         } elseif (is_dir($str)) {
-             $scan = glob(rtrim($str, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '*');
-             foreach ($scan as $path) {
-                 $this->recursiveDelete($path);
+         try {
+             if (is_file($str)) {
+                 return @unlink($str);
+             } elseif (is_dir($str)) {
+                 $scan = glob(rtrim($str, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '*');
+                 foreach ($scan as $path) {
+                     $this->recursiveDelete($path);
+                 }
+                 return @rmdir($str);
+             } else {
+                 throw new \Exception("Invalid path", 0);
              }
-             return @rmdir($str);
-         } else {
-             throw new \Exception("Invalid path", 0);
+         } catch (Exception $e) {
+             echo $e;
+             echo "Internal HyperCache error";
+             die();
          }
      }
 
