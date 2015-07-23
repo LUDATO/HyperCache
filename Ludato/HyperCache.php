@@ -37,12 +37,9 @@
      private $fullFilename;
      private $cacheDirectory;
      private $pagePath;
-
-     /**
-      *
-      * @var boolean Determines if development texts are shown
-      */
-     public static $dev;
+     private $fullPrependPath;
+     private $fullAppendPath;
+     private $dev;
 
      /**
       * @var string Valid PHP code (without opening tags) to be prepended to cache
@@ -72,11 +69,9 @@
       * @param string $directory Path to directory for caching
       * @param string|null $page Full page name, including extension (if you want it determined automatically using PHP_SELF, use NULL)
       * @param string $param Parameters of caching (eg. for details.php it would be ID). You can combine whatever you want here
+      * @param boolean $dev Determines if development texts are shown
       */
-     function __construct($directory, $page = NULL, $param = "default") {
-         if (ini_get('short_open_tag')) {
-             ini_set('short_open_tag', '0'); //disabling short tags, in order to work with XML
-         }
+     function __construct($directory, $page = NULL, $param = "default", $dev = FALSE) {
          mb_internal_encoding("UTF-8");
          if ($page === NULL) {
              $pathinfo = pathinfo($_SERVER['PHP_SELF']);
@@ -94,7 +89,15 @@
          $this->cacheDirectory = urlencode($directory);
          $this->pagePath = urlencode($directory) . DIRECTORY_SEPARATOR . urlencode($page) . DIRECTORY_SEPARATOR;
 
-         $this->fullFilename = $this->fullDirectory . "cached" . ".php";
+         if ($dev) {
+             $this->dev = TRUE;
+         } else {
+             $this->dev = FALSE;
+         }
+
+         $this->fullFilename = $this->fullDirectory . "cached";
+         $this->fullPrependPath = $this->fullDirectory . "prepend" . ".php";
+         $this->fullAppendPath = $this->fullDirectory . "append" . ".php";
      }
 
      /**
@@ -124,8 +127,8 @@
              throw new \Exception("Caching directory not writeable", 0);
          }
 
-         if (!is_file($this->cacheDirectory . DIRECTORY_SEPARATOR . ".htaccess")) {
-             $hw = fopen($this->cacheDirectory . DIRECTORY_SEPARATOR . ".htaccess", "w");
+         if (!is_file($this->cacheDirectory . ".htaccess")) {
+             $hw = fopen($this->cacheDirectory . ".htaccess", "w");
              $htaccess = <<<EOT
 Order deny,allow
 Deny from all
@@ -138,11 +141,26 @@ EOT;
          ob_end_clean();
          //$time = time();
          @unlink($this->fullFilename);
+         @unlink($this->fullPrependPath);
+         @unlink($this->fullAppendPath);
          //chmod($file, 0777);
+
          $fw = fopen($this->fullFilename, "w");
-         $page_prepend_append = "<?php " . $this->prepend . " ?>" . $page . "<?php " . $this->append . " ?>";
-         fputs($fw, $page_prepend_append, strlen($page_prepend_append));
+         fputs($fw, $page, strlen($page));
          fclose($fw);
+
+         if ($this->prepend) {
+             $fwp = fopen($this->fullPrependPath, "w");
+             fputs($fwp, $this->prepend, strlen($this->prepend));
+             fclose($fwp);
+         }
+
+         if ($this->append) {
+             $fwp = fopen($this->fullAppendPath, "w");
+             fputs($fwp, $this->append, strlen($this->append));
+             fclose($fwp);
+         }
+
          echo $page;
          if ($this->dev) {
              echo 'cache generated';
@@ -161,7 +179,17 @@ EOT;
          if ($this->dev) {
              $time_pre = microtime(true);
          }
-         require $this->fullFilename;
+
+         if (is_file($this->fullPrependPath)) {
+             require $this->fullPrependPath;
+         }
+
+         readfile($this->fullFilename);
+
+         if (is_file($this->fullAppendPath)) {
+             require $this->fullAppendPath;
+         }
+
          if ($this->dev) {
              $time_post = microtime(true);
              $exec_time = ($time_post - $time_pre) * 1000;
@@ -189,7 +217,7 @@ EOT;
      function autoEndCache() {
          try {
              $this->saveCache();
-         } catch (Exception $e) {
+         } catch (\Exception $e) {
              echo "\n" . $e . "\n";
              die();
          }
@@ -274,7 +302,7 @@ EOT;
              } else {
                  throw new \Exception("Invalid path", 0);
              }
-         } catch (Exception $e) {
+         } catch (\Exception $e) {
              echo $e;
              echo "Internal HyperCache error";
              die();

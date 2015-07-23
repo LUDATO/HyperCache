@@ -2,8 +2,7 @@
 
  require 'Ludato/HyperCache.php';
 
- $cache = new Ludato\HyperCache("hypercache", NULL, $_GET['user']);
- $cache->dev = TRUE;
+ $cache = new Ludato\HyperCache("hypercache", NULL, $_GET['user'], TRUE);
 
 
 
