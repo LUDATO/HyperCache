@@ -30,6 +30,8 @@
   * LUDATO HyperCache
   * @author David Kostal
   * @license http://opensource.org/licenses/MIT MIT
+  * @example example.php Basic usage example
+  * @example example-advanced.php Advanced usage example
   */
  Class HyperCache {
 
@@ -115,6 +117,8 @@
      /**
       * Saves cached file and flushes the buffer (shows output)
       * @return boolean
+      * @throws Exception
+      * @
       */
      function saveCache() {
          if (is_writable($this->fullDirectory)) {
@@ -242,7 +246,9 @@ EOT;
       * @return void
       */
      function purgeCurrent() {
-         $this->recursiveDelete($this->fullDirectory);
+         if (is_writable($this->fullDirectory)) {
+             $this->recursiveDelete($this->fullDirectory);
+         }
      }
 
      /**
@@ -250,7 +256,9 @@ EOT;
       * @return void
       */
      function purgeAll() {
-         $this->recursiveDelete($this->cacheDirectory);
+         if (is_writable($this->cacheDirectory)) {
+             $this->recursiveDelete($this->cacheDirectory);
+         }
      }
 
      /**
@@ -258,7 +266,9 @@ EOT;
       * @return void
       */
      function purgePage() {
-         $this->recursiveDelete($this->pagePath);
+         if (is_writable($this->pagePath)) {
+             $this->recursiveDelete($this->pagePath);
+         }
      }
 
      /**
@@ -289,6 +299,7 @@ EOT;
       * Delete a file or recursively delete a directory
       * @param string $str Path to file or directory
       * @return void
+      * @throws Exception
       */
      private function recursiveDelete($str) {
          try {
