@@ -247,7 +247,6 @@ EOT;
 
      /**
       * Purges all files specified cacing directory
-      * @param string $dir Path to caching directory
       * @return void
       */
      function purgeAll() {
