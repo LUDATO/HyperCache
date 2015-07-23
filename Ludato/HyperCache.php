@@ -74,6 +74,9 @@
       * @param string $param Parameters of caching (eg. for details.php it would be ID). You can combine whatever you want here
       */
      function __construct($directory, $page = NULL, $param = "default") {
+         if (ini_get('short_open_tag')) {
+             ini_set('short_open_tag', '0'); //disabling short tags, to work with XML
+         }
          mb_internal_encoding("UTF-8");
          if ($page === NULL) {
              $pathinfo = pathinfo($_SERVER['PHP_SELF']);
