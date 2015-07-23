@@ -96,7 +96,7 @@
 				<a href="http://opensource.org/licenses/MIT">MIT</a><br>
 				<b>Author:</b>
 				David Kostal<br>
-			<b>Located at</b> <a href="source-class-Ludato.HyperCache.html#29-312" title="Go to source code">Ludato/HyperCache.php</a>
+			<b>Located at</b> <a href="source-class-Ludato.HyperCache.html#29-313" title="Go to source code">Ludato/HyperCache.php</a>
 		<br>
 	</div>
 
@@ -189,7 +189,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_saveCache">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#115-172" title="Go to source code">saveCache</a>( )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#115-174" title="Go to source code">saveCache</a>( )</code>
 
 		<div class="description short">
 			<p>Saves cached file and flushes the buffer (shows output)</p>
@@ -223,7 +223,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCache">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#174-198" title="Go to source code">getCache</a>( )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#176-200" title="Go to source code">getCache</a>( )</code>
 
 		<div class="description short">
 			<p>Loads cached file</p>
@@ -253,7 +253,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_autoLoadCache">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#200-211" title="Go to source code">autoLoadCache</a>( )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#202-213" title="Go to source code">autoLoadCache</a>( )</code>
 
 		<div class="description short">
 			<p>Shows cache and if file is cached, otherwise starts caching and executing the rest of the file</p>
@@ -283,7 +283,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_autoEndCache">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#213-224" title="Go to source code">autoEndCache</a>( )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#215-226" title="Go to source code">autoEndCache</a>( )</code>
 
 		<div class="description short">
 			<p>Automaically ending and saving cache</p>
@@ -313,7 +313,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isCached">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#226-236" title="Go to source code">isCached</a>( )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#228-238" title="Go to source code">isCached</a>( )</code>
 
 		<div class="description short">
 			<p>Returns if file is cached</p>
@@ -347,7 +347,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_purgeCurrent">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#238-244" title="Go to source code">purgeCurrent</a>( )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#240-246" title="Go to source code">purgeCurrent</a>( )</code>
 
 		<div class="description short">
 			<p>Deletes cache for current page and params (eg. You have CMS and publish a new article. You need to purge just article_list.php, not article_details.php. If user publishes comment, purge just article_details.php with param of article name/ID)</p>
@@ -377,7 +377,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_purgeAll">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#246-253" title="Go to source code">purgeAll</a>( <span>string <var>$dir</var>,…</span> )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#248-254" title="Go to source code">purgeAll</a>( )</code>
 
 		<div class="description short">
 			<p>Purges all files specified cacing directory</p>
@@ -387,11 +387,6 @@ Note: Paths are saved url-encoded</p>
 			<p>Purges all files specified cacing directory</p>
 
 
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$dir</var>,…</dt>
-					<dd>Path to caching directory</dd>
-				</dl></div>
 
 
 
@@ -412,7 +407,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_purgePage">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#255-261" title="Go to source code">purgePage</a>( )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#256-262" title="Go to source code">purgePage</a>( )</code>
 
 		<div class="description short">
 			<p>Purges file for current page (eg. You have CMS and publish a new article. You need to purge just article_list.php, not article_details.php. If user publishes comment, purge just article_details.php with param of article name/ID)</p>
@@ -442,7 +437,7 @@ Note: Paths are saved url-encoded</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_purgeCustom">#</a>
-		<code><a href="source-class-Ludato.HyperCache.html#263-285" title="Go to source code">purgeCustom</a>( <span>string <var>$directory</var></span>, <span>string <var>$page</var></span>, <span>string <var>$param</var> = <span class="php-keyword1">NULL</span></span> )</code>
+		<code><a href="source-class-Ludato.HyperCache.html#264-286" title="Go to source code">purgeCustom</a>( <span>string <var>$directory</var></span>, <span>string <var>$page</var></span>, <span>string <var>$param</var> = <span class="php-keyword1">NULL</span></span> )</code>
 
 		<div class="description short">
 			<p>Purge cache from specified directory, for specific page (and params)</p>
