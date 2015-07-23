@@ -27,7 +27,7 @@
  namespace Ludato;
 
  /**
-  * LUDATO HyperCache 0.1.0
+  * LUDATO HyperCache
   * @author David Kostal
   * @license http://opensource.org/licenses/MIT MIT
   */
