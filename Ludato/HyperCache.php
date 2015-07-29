@@ -131,8 +131,8 @@
              throw new \Exception("Caching directory not writeable", 0);
          }
 
-         if (!is_file($this->cacheDirectory . ".htaccess")) {
-             $hw = fopen($this->cacheDirectory . ".htaccess", "w");
+         if (!is_file($this->cacheDirectory . DIRECTORY_SEPARATOR . ".htaccess")) {
+             $hw = fopen($this->cacheDirectory . DIRECTORY_SEPARATOR . ".htaccess", "w");
              $htaccess = <<<EOT
 Order deny,allow
 Deny from all
